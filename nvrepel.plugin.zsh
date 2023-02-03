@@ -1,4 +1,5 @@
 function nvrepel() {
+function nvrepel-line() {
   if [[ ! "$BUFFER" =~ ^: ]]; then
     return 1
   fi
@@ -10,10 +11,10 @@ function nvrepel() {
   return 0
 }
 
-zle -N nvrepel
+zle -N nvrepel-line
 
 function nvrepel-or-accept-line() {
-  nvrepel || zle accept-line
+  nvrepel-line || zle accept-line
 }
 
 zle -N nvrepel-or-accept-line
