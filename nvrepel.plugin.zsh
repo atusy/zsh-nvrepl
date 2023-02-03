@@ -1,25 +1,25 @@
-function nvrepel-nvr() {
+function nvrepl-nvr() {
   nvr "$@"
 }
 
-function nvrepel-line() {
+function nvrepl-line() {
   if [[ ! "$BUFFER" =~ ^: ]]; then
     return 1
   fi
 
-  local RES="$( nvrepel-nvr --remote-expr "execute(\"${BUFFER//\"/\\\"}\")" )"
+  local RES="$( nvrepl-nvr --remote-expr "execute(\"${BUFFER//\"/\\\"}\")" )"
   printf "$RES"
   print -s "$BUFFER"
   zle send-break
   return 0
 }
 
-zle -N nvrepel-line
+zle -N nvrepl-line
 
-function nvrepel-or-accept-line() {
-  nvrepel-line || zle accept-line
+function nvrepl-or-accept-line() {
+  nvrepl-line || zle accept-line
 }
 
-zle -N nvrepel-or-accept-line
+zle -N nvrepl-or-accept-line
 
 NVREPL_LOADED=1

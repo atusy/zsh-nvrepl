@@ -1,4 +1,4 @@
-# zsh-nvrepel
+# zsh-nvrepl
 
 Let Zsh acts as if a REPL of Neovim's Ex-command.
 
@@ -20,21 +20,21 @@ Then, <kbd>Enter</kbd> will run Ex-command if the Zsh's buffer starts with `:` a
 Otherwise, the buffer is interpreted ordinarily.
 
 ``` bash
-source nvrepel.plugin.zsh # or use plugin managers you like
+source nvrepl.plugin.zsh # or use plugin managers you like
 
 if [[ -n "$NVIM" ]]; then
-    bindkey '^m' nvrepel-or-accept-line
+    bindkey '^m' nvrepl-or-accept-line
 fi
 ```
 
-If you want to customize the behavior of `nvr` (neovim-remote), then define `nvrepel-nvr` function.
+If you want to customize the behavior of `nvr` (neovim-remote), then define `nvrepl-nvr` function.
 This function should receive the `--remote-expr` parameter.
 
 For example, the function below allows modifying the address that Neovim listens to.
 This might be useful when attaching external Zsh as a Neovim's REPL.
 
 ``` bash
-function nvrepel-nvr() {
+function nvrepl-nvr() {
     nvr --servername "your neovim server" "$@"
 }
 ```
