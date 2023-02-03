@@ -21,3 +21,5 @@ function nvrepel-or-accept-line() {
 }
 
 zle -N nvrepel-or-accept-line
+
+NVREPL_LOADED=1
