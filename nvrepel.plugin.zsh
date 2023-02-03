@@ -1,10 +1,13 @@
-function nvrepel() {
+function nvrepel-nvr() {
+  nvr "$@"
+}
+
 function nvrepel-line() {
   if [[ ! "$BUFFER" =~ ^: ]]; then
     return 1
   fi
 
-  local RES="$( nvr --remote-expr "execute(\"${BUFFER//\"/\\\"}\")" )"
+  local RES="$( nvrepel-nvr --remote-expr "execute(\"${BUFFER//\"/\\\"}\")" )"
   printf "$RES"
   print -s "$BUFFER"
   zle send-break
