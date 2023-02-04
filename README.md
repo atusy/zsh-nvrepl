@@ -31,7 +31,7 @@ If you want to customize the behavior of `nvr` (neovim-remote), then define `nvr
 This function should receive the `--remote-expr` parameter.
 
 For example, the function below allows modifying the address that Neovim listens to.
-This might be useful when attaching external Zsh as a Neovim's REPL.
+This might be useful when attaching external Zsh, such as one from a tmux pane, as a Neovim's REPL.
 
 ``` bash
 function nvrepl-nvr() {
