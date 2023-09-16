@@ -17,7 +17,11 @@ function nvrepl-line() {
 zle -N nvrepl-line
 
 function nvrepl-or-accept-line() {
-  nvrepl-line || zle accept-line
+  if which "${NVREPL_FALLBACK_ACCEPT_LINE:-}" >/dev/null 2>/dev/null; then
+    nvrepl-line || zle ${NVREPL_FALLBACK_ACCEPT_LINE}
+  else
+    nvrepl-line || zle accept-line
+  fi
 }
 
 zle -N nvrepl-or-accept-line
